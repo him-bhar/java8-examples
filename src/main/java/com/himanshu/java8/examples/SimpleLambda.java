@@ -1,6 +1,10 @@
 package com.himanshu.java8.examples;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SimpleLambda {
+  private static Logger logger = LoggerFactory.getLogger(SimpleLambda.class);
   public static void main(String args[]) {
     SimpleLambda tester = new SimpleLambda();
 
@@ -18,16 +22,16 @@ public class SimpleLambda {
     // without return statement and without curly braces
     MathOperation division = (int a, int b) -> a / b;
 
-    System.out.println("10 + 5 = " + tester.operate(10, 5, addition));
-    System.out.println("10 - 5 = " + tester.operate(10, 5, subtraction));
-    System.out.println("10 x 5 = " + tester.operate(10, 5, multiplication));
-    System.out.println("10 / 5 = " + tester.operate(10, 5, division));
+    logger.info("10 + 5 = " + tester.operate(10, 5, addition));
+    logger.info("10 - 5 = " + tester.operate(10, 5, subtraction));
+    logger.info("10 x 5 = " + tester.operate(10, 5, multiplication));
+    logger.info("10 / 5 = " + tester.operate(10, 5, division));
 
     // with parenthesis
-    GreetingService greetService1 = message -> System.out.println("Hello " + message);
+    GreetingService greetService1 = message -> logger.info("Hello " + message);
 
     // without parenthesis
-    GreetingService greetService2 = (message) -> System.out.println("Helloz " + message);
+    GreetingService greetService2 = (message) -> logger.info("Helloz " + message);
 
     greetService1.sayMessage("Mahesh");
     greetService2.sayMessage("Suresh");
