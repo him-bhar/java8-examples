@@ -23,4 +23,17 @@ public class ConcatenatorUsingLambdaTest {
     Assert.assertThat(str3, Matchers.containsString(str2));
     Assert.assertThat(str3, Matchers.containsString("lalalala"));
   }
+  
+  @Test
+  public void shouldConcatenateStringsViaMethodReference() {
+    String str1 = "Hello";
+    String str2 = "World";
+    
+    ConcatenatorUsingLambda concatenator = new ConcatenatorUsingLambda();
+    String str3 = concatenator.applyConcatUsingMethodReference(str1, str2);
+    logger.info("Output string : {}", str3);
+    Assert.assertThat(str3, Matchers.containsString(str1));
+    Assert.assertThat(str3, Matchers.containsString(str2));
+    Assert.assertThat(str3, Matchers.not(Matchers.containsString("lalalala")));
+  }
 }
