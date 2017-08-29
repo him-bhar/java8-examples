@@ -9,7 +9,7 @@ public class SemaphoreExample {
   private static Logger logger = LoggerFactory.getLogger(SemaphoreExample.class);
   
   private Semaphore semaphore = new Semaphore(3); //Only 3 threads can enter critical section at a time
-  
+
   public static void main(String[] args) {
     SemaphoreExample se = new SemaphoreExample();
     Runnable r = () -> {
