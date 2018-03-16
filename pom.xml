@@ -16,6 +16,7 @@
     <modules>
         <module>basic</module>
         <module>samples</module>
+        <module>classloader-poc</module>
     </modules>
 
     <build>
