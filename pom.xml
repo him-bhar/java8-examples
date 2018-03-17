@@ -17,6 +17,7 @@
         <module>basic</module>
         <module>samples</module>
         <module>classloader-poc</module>
+        <module>junit5-samples</module>
     </modules>
 
     <build>

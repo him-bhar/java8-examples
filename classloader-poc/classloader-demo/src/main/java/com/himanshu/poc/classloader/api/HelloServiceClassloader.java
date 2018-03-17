@@ -2,6 +2,8 @@ package com.himanshu.poc.classloader.api;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -28,9 +30,10 @@ public class HelloServiceClassloader {
     this.classLoader = new URLClassLoader(urls.toArray(new URL[urls.size()]));
   }
 
-  public IHelloService resolveClass(String className) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+  public IHelloService resolveHelloServiceClass(String className, String owner) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
     Class clazz = this.classLoader.loadClass(className);
-    IHelloService helloService = (IHelloService) clazz.newInstance();
+    Constructor<IHelloService> constructor = clazz.getConstructor(String.class);
+    IHelloService helloService = constructor.newInstance(owner);
     return helloService;
   }
 }

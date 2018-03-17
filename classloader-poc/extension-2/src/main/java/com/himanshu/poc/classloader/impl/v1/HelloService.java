@@ -12,6 +12,6 @@ public class HelloService implements IHelloService {
 
   @Override
   public String sayHello() {
-    return "Saying hello from "+owner+ " via extension-1 "+HelloService.class.getCanonicalName();
+    return "Saying hello from "+owner+ " via extension-2 "+HelloService.class.getCanonicalName();
   }
 }
